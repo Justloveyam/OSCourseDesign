@@ -356,7 +356,11 @@ public class FileSystem {
         System.out.println("--区块地址--------------区块大小--------------区块空闲------");
         for(int i=0; i<currentUser.getMemory().getPartitions().size(); i++) {
             Partition temp = currentUser.getMemory().getPartitions().get(i);
-            System.out.println("  " + temp.getHead() + "\t\t\t\t\t\t" + temp.getSize() + "\t\t\t\t\t" + temp.isFree());
+            if(temp.getHead() >= 0 && temp.getHead()< 10) {
+                System.out.println("  " + temp.getHead() + " \t\t\t\t\t" + temp.getSize() + "   \t\t\t\t" + temp.isFree());
+            }else {
+                System.out.println("  " + temp.getHead() + "\t\t\t\t\t" + temp.getSize() + "   \t\t\t\t" + temp.isFree());
+            }
         }
         System.out.println("---------------------------------------------------------");
     }
